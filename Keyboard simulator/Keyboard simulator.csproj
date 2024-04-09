@@ -9,4 +9,34 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="files\Textes.txt" />
+    <None Remove="icons8-file-folder.png" />
+    <None Remove="icons8-refresh.png" />
+    <None Remove="Mystic_Elegance.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="files\textes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icons8-file-folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons8-refresh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Mystic_Elegance.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="files\sounds\" />
+    <Folder Include="files\themes\" />
+  </ItemGroup>
+
 </Project>

@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Keyboard_simulator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Main menu" Height="160" Width="300" AllowsTransparency="True" Background="Transparent" WindowStyle="None">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="Row1" Height="18"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="1" Style="{StaticResource WindowBackgroundTheme}"></Border>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Command="{Binding minimizeCommand}" Grid.Row="0" Style="{StaticResource WindowControlButtonsMinimize}" HorizontalAlignment="Right" Width="20" VerticalAlignment="Bottom" Margin="0,0,5,0"/>
+            <Button Command="{Binding closeCommand}" Grid.Row="0" Style="{StaticResource WindowControlButtonsClose}" HorizontalAlignment="Right" Width="30" VerticalAlignment="Bottom" Margin="0,0,10,0"/>
+        </StackPanel>
+        <Border MouseLeftButtonDown="Border_MouseLeftButtonDown" Style="{StaticResource WindowControlButtonsDragMove}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="100"/>
+        <StackPanel Grid.Row="1" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border Grid.RowSpan="2" Style="{StaticResource DefaultBackgroundBorderElement}"/>
+                <Grid Grid.Row="0" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                        <ColumnDefinition Width="25"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="textBlock_text" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Style="{StaticResource DefaultTextBlock}" Text="Text"/>
+                    <ComboBox Grid.Column="1" Name="combobox_textes"></ComboBox>
+                    <Button Click="button_update_Click" Name="button_update" HorizontalAlignment="Center" Width="20" Height="20" Grid.Column="2" Style="{StaticResource DefaultButton}">
+                        <Image Margin="2" Source="./icons8-refresh.png"></Image>
+                    </Button>
+                    <Button HorizontalAlignment="Center" Width="20" Height="20" Grid.Column="3" Style="{StaticResource DefaultButton}">
+                        <Image Source="./icons8-file-folder.png" Margin="2"></Image>
+                    </Button>
+                </Grid>
+                <Button Click="button_play_Click" Name="button_play" Grid.Row="1" Width="100" Margin="5,0,5,5" Style="{StaticResource DefaultButton}" Content="Play"/>
+            </Grid>
+            <Grid Margin="0,5,0,0">
+                <Border Style="{StaticResource DefaultBackgroundBorderElement}"/>
+                <StackPanel>
+                    <Button Name="button_settings" Command="{Binding openOptionCommand}" Margin="5" Width="100" Style="{StaticResource DefaultButton}" Content="Settings"/>
+                    <Button Name="button_about" Margin="0,0,0,5" Width="100" Style="{StaticResource DefaultButton}" Content="About"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>
