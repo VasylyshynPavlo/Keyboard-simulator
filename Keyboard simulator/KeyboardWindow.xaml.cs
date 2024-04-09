@@ -258,6 +258,7 @@ namespace Keyboard_simulator
             if (myButton != null)
             {
                 myButton.Pressed();
+
             }
         }
 
