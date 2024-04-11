@@ -42,6 +42,10 @@ namespace Keyboard_simulator
                         current = ' ';
                     }
                 }
+                else
+                {
+                    miss++;
+                }
             }
         }
     }

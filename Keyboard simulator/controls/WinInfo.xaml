@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Keyboard_simulator.controls"
              mc:Ignorable="d" 
+             x:Name="root"
              d:DesignHeight="200" d:DesignWidth="300">
     <UserControl.Resources>
         <Style x:Key="Button" TargetType="Button">
@@ -19,7 +20,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="5">
-                            <Grid SizeChanged="Grid_SizeChanged">
+                            <Grid>
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Grid>
                         </Border>
@@ -66,7 +67,7 @@
                 <StackPanel>
                     <UniformGrid Columns="2">
                         <TextBlock Style="{StaticResource DefaultTextBlock}">Time: </TextBlock>
-                        <TextBlock Style="{StaticResource DefaultTextBlock}" x:Name="Time"></TextBlock>
+                        <TextBlock Style="{StaticResource DefaultTextBlock}" x:Name="TimeBlock" Text="{Binding Time, ElementName=root}"></TextBlock>
                     </UniformGrid>
                 </StackPanel>
             </DockPanel>

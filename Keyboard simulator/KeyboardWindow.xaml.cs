@@ -1,7 +1,9 @@
 ﻿using Keyboard_simulator.controls;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Keyboard_simulator
 {
@@ -10,22 +12,42 @@ namespace Keyboard_simulator
     /// </summary>
     public partial class KeyboardWindow : Window
     {
+        private DispatcherTimer timer;
+        private TimeSpan time;
+        private int Time;
         public KeyboardWindow()
         {
             InitializeComponent();
             LenguageChange();
             UpdateLine();
             Progress.Maximum = MainWindow.control.game.text.Length;
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            time = TimeSpan.Zero;
+            timer.Start();
+            Time = 0;
+            TimerValue.Text = Time.ToString();
+        }
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            Time++;
+            TimerValue.Text = Time.ToString();
         }
 
         private void UpdateLine()
         {
+
             History.Text = MainWindow.control.game.history;
             Current.Text = MainWindow.control.game.current.ToString();
             Next.Text = MainWindow.control.game.next;
             Progress.Value = History.Text.Length;
+            MissValue.Text = MainWindow.control.game.miss.ToString();
+
             if (Progress.Value == Progress.Maximum)
             {
+
                 winInfo.Visibility = Visibility.Visible;
             }
         }

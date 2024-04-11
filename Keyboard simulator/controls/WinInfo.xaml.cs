@@ -25,11 +25,6 @@ namespace Keyboard_simulator.controls
             InitializeComponent();
         }
 
-        private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            Restart.FontSize = (sender as Grid).ActualHeight * 0.7;
-        }
-
         public static readonly RoutedEvent RestartClickEvent = 
             EventManager.RegisterRoutedEvent(nameof(RestartClick), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(WinInfo));
         
@@ -65,8 +60,6 @@ namespace Keyboard_simulator.controls
             get { return (string)GetValue(TimeProperty); }
             set { SetValue(TimeProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for Time.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TimeProperty =
             DependencyProperty.Register("Time", typeof(string), typeof(WinInfo), new PropertyMetadata(string.Empty));
 
