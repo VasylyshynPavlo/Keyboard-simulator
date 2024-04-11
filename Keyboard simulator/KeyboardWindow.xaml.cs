@@ -14,6 +14,20 @@ namespace Keyboard_simulator
         {
             InitializeComponent();
             LenguageChange();
+            UpdateLine();
+            Progress.Maximum = MainWindow.control.game.text.Length;
+        }
+
+        private void UpdateLine()
+        {
+            History.Text = MainWindow.control.game.history;
+            Current.Text = MainWindow.control.game.current.ToString();
+            Next.Text = MainWindow.control.game.next;
+            Progress.Value = History.Text.Length;
+            if (Progress.Value == Progress.Maximum)
+            {
+                winInfo.Visibility = Visibility.Visible;
+            }
         }
 
         private void Border_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -53,10 +67,13 @@ namespace Keyboard_simulator
             OemMinus.SecondText = "_";
             Return.TopText = "↲";
             Return.SecondText = " ";
+            Space.TopText = "Space";
+            Space.SecondText = " ";
             if (MainWindow.control.lenguage == Lenguage.English)
             {
                 Oem3.TopText = "`";
                 Oem3.SecondText = "~";
+                D1.SecondText = "!";
                 D2.SecondText = "@";
                 D3.SecondText = "#";
                 D4.SecondText = "$";
@@ -154,6 +171,7 @@ namespace Keyboard_simulator
             {
                 Oem3.TopText = "'";
                 Oem3.SecondText = "₴";
+                D1.SecondText = "!";
                 D2.SecondText = "\"";
                 D3.SecondText = "№";
                 D4.SecondText = ";";
@@ -247,19 +265,253 @@ namespace Keyboard_simulator
             }
 
         }
+        void Spaces(bool value)
+        {
+            if (value)
+            {
+                if (MainWindow.control.lenguage == Lenguage.English)
+                {
+                    Oem3.SecondText = "`";
+                    Oem3.TopText = "~";
+                    D1.SecondText = "1";
+                    D2.SecondText = "2";
+                    D3.SecondText = "3";
+                    D4.SecondText = "4";
+                    D5.SecondText = "5";
+                    D6.SecondText = "6";
+                    D7.SecondText = "7";
+                    D8.SecondText = "8";
+                    D9.SecondText = "9";
+                    D0.SecondText = "0";
+                    D1.TopText = "!";
+                    D2.TopText = "@";
+                    D3.TopText = "#";
+                    D4.TopText = "$";
+                    D5.TopText = "%";
+                    D6.TopText = "^";
+                    D7.TopText = "&";
+                    D8.TopText = "*";
+                    D9.TopText = "(";
+                    D0.TopText = ")";
+                    OemMinus.TopText = "_";
+                    OemMinus.SecondText = "-";
+                    OemPlus.TopText = "+";
+                    OemPlus.SecondText = "=";
 
 
+                    Q.SecondText = "q";
+                    W.SecondText = "w";
+                    E.SecondText = "e";
+                    R.SecondText = "r";
+                    T.SecondText = "t";
+                    Y.SecondText = "y";
+                    U.SecondText = "u";
+                    I.SecondText = "i";
+                    O.SecondText = "o";
+                    P.SecondText = "p";
+                    OemOpenBrackets.SecondText = "[";
+                    Oem6.SecondText = "]";
+
+
+                    A.SecondText = "a";
+                    S.SecondText = "s";
+                    D.SecondText = "d";
+                    F.SecondText = "f";
+                    G.SecondText = "g";
+                    H.SecondText = "h";
+                    J.SecondText = "j";
+                    K.SecondText = "k";
+                    L.SecondText = "l";
+                    Oem1.SecondText = ";";
+                    OemQuotes.SecondText = "\'";
+                    Oem5.SecondText = "\\";
+
+
+                    Z.SecondText = "z";
+                    X.SecondText = "x";
+                    C.SecondText = "c";
+                    V.SecondText = "v";
+                    B.SecondText = "b";
+                    N.SecondText = "n";
+                    M.SecondText = "m";
+                    OemComma.SecondText = ",";
+                    OemPeriod.SecondText = ".";
+                    OemQuestion.SecondText = "/";
+
+
+
+
+                    Q.TopText = "Q";
+                    W.TopText = "W";
+                    E.TopText = "E";
+                    R.TopText = "R";
+                    T.TopText = "T";
+                    Y.TopText = "Y";
+                    U.TopText = "U";
+                    I.TopText = "I";
+                    O.TopText = "O";
+                    P.TopText = "P";
+                    OemOpenBrackets.TopText = "{";
+                    Oem6.TopText = "}";
+
+
+                    A.TopText = "A";
+                    S.TopText = "S";
+                    D.TopText = "D";
+                    F.TopText = "F";
+                    G.TopText = "G";
+                    H.TopText = "H";
+                    J.TopText = "J";
+                    K.TopText = "K";
+                    L.TopText = "L";
+                    Oem1.TopText = ":";
+                    OemQuotes.TopText = "\"";
+                    Oem5.TopText = "|";
+
+
+                    Z.TopText = "Z";
+                    X.TopText = "X";
+                    C.TopText = "C";
+                    V.TopText = "V";
+                    B.TopText = "B";
+                    N.TopText = "N";
+                    M.TopText = "M";
+                    OemComma.TopText = "<";
+                    OemPeriod.TopText = ">";
+                    OemQuestion.TopText = "?";
+                }
+                if (MainWindow.control.lenguage == Lenguage.Ukrainian)
+                {
+                    Oem3.SecondText = "'";
+                    Oem3.TopText = "₴";
+                    D1.TopText = "!";
+                    D2.TopText = "\"";
+                    D3.TopText = "№";
+                    D4.TopText = ";";
+                    D5.TopText = "%";
+                    D6.TopText = ":";
+                    D7.TopText = "?";
+                    D8.TopText = "*";
+                    D9.TopText = "(";
+                    D0.TopText = ")";
+                    D1.SecondText = "1";
+                    D2.SecondText = "2";
+                    D3.SecondText = "3";
+                    D4.SecondText = "4";
+                    D5.SecondText = "5";
+                    D6.SecondText = "6";
+                    D7.SecondText = "7";
+                    D8.SecondText = "8";
+                    D9.SecondText = "9";
+                    D0.SecondText = "0";
+                    OemMinus.TopText = "_";
+                    OemMinus.SecondText = "-";
+                    OemPlus.TopText = "+";
+                    OemPlus.SecondText = "=";
+
+
+                    Q.SecondText = "й";
+                    W.SecondText = "ц";
+                    E.SecondText = "у";
+                    R.SecondText = "к";
+                    T.SecondText = "е";
+                    Y.SecondText = "н";
+                    U.SecondText = "г";
+                    I.SecondText = "ш";
+                    O.SecondText = "щ";
+                    P.SecondText = "з";
+                    OemOpenBrackets.SecondText = "х";
+                    Oem6.SecondText = "ї";
+
+
+                    A.SecondText = "ф";
+                    S.SecondText = "і";
+                    D.SecondText = "в";
+                    F.SecondText = "а";
+                    G.SecondText = "п";
+                    H.SecondText = "р";
+                    J.SecondText = "о";
+                    K.SecondText = "л";
+                    L.SecondText = "д";
+                    Oem1.SecondText = "ж";
+                    OemQuotes.SecondText = "є";
+                    Oem5.SecondText = "\\";
+
+
+                    Z.SecondText = "я";
+                    X.SecondText = "ч";
+                    C.SecondText = "с";
+                    V.SecondText = "м";
+                    B.SecondText = "и";
+                    N.SecondText = "т";
+                    M.SecondText = "ь";
+                    OemComma.SecondText = "б";
+                    OemPeriod.SecondText = "ю";
+                    OemQuestion.SecondText = ".";
+
+
+
+                    Q.TopText = "Й";
+                    W.TopText = "Ц";
+                    E.TopText = "У";
+                    R.TopText = "К";
+                    T.TopText = "Е";
+                    Y.TopText = "Н";
+                    U.TopText = "Г";
+                    I.TopText = "Ш";
+                    O.TopText = "Щ";
+                    P.TopText = "З";
+                    OemOpenBrackets.TopText = "Х";
+                    Oem6.TopText = "Ї";
+
+
+                    A.TopText = "Ф";
+                    S.TopText = "І";
+                    D.TopText = "В";
+                    F.TopText = "А";
+                    G.TopText = "П";
+                    H.TopText = "Р";
+                    J.TopText = "О";
+                    K.TopText = "Л";
+                    L.TopText = "Д";
+                    Oem1.TopText = "Ж";
+                    OemQuotes.TopText = "Є";
+                    Oem5.TopText = "/";
+
+
+                    Z.TopText = "Я";
+                    X.TopText = "Ч";
+                    C.TopText = "С";
+                    V.TopText = "М";
+                    B.TopText = "И";
+                    N.TopText = "Т";
+                    M.TopText = "Ь";
+                    OemComma.TopText = "Б";
+                    OemPeriod.TopText = "Ю";
+                    OemQuestion.TopText = ",";
+                }
+            }
+            else
+            {
+                LenguageChange();
+            }
+        }
 
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-
             string buttonName = e.Key.ToString();
             KeyboardButton myButton = this.FindName(buttonName) as KeyboardButton;
             if (myButton != null)
             {
+                if ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
+                {
+                    Spaces(true);
+                }
                 myButton.Pressed();
-
+                MainWindow.control.game.Step(myButton.TopText);
+                UpdateLine();
             }
+
         }
 
         private void Window_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
@@ -269,8 +521,13 @@ namespace Keyboard_simulator
             KeyboardButton myButton = this.FindName(buttonName) as KeyboardButton;
             if (myButton != null)
             {
+                if ((Keyboard.Modifiers & ModifierKeys.Shift) != ModifierKeys.Shift)
+                {
+                    Spaces(false);
+                }
                 myButton.UnPressed();
             }
+
         }
 
 
@@ -344,5 +601,14 @@ namespace Keyboard_simulator
         }
         #endregion
 
+        private void winInfo_RestartClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
+        private void winInfo_GoToMenuClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace Keyboard_simulator
         public event LenguageChangedEventHandler LenguageChanged;
         public ObservableCollection<string> textes;
         public FileSystem fileSystem;
+        public Game game;
 
         private Lenguage _lenguage;
         public Lenguage lenguage
@@ -48,10 +49,15 @@ namespace Keyboard_simulator
 
             }
         }
-        public void StartGame()
+        public void StartGame(string text)
         {
+            game = new Game(text);
             KeyboardWindow keyboardWindow = new KeyboardWindow();
             keyboardWindow.ShowDialog();
+            if( keyboardWindow.DialogResult == true )
+            {
+                StartGame(text);
+            }
         }
     }
 }

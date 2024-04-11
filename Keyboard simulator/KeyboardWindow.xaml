@@ -17,6 +17,7 @@
             <EventSetter Event="MouseLeftButtonUp" Handler="Resize_End"/>
             <EventSetter Event="MouseMove" Handler="Resizeing_Form"/>
         </Style>
+        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -31,6 +32,17 @@
                 <RowDefinition Height="60"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            <Border Grid.Row="1" Style="{StaticResource DefaultBackgroundBorderElement}"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Name="History" Foreground="#37ffffff" TextAlignment="Right" HorizontalAlignment="Right" FontSize="50" FontFamily="Arial Black"/>
+                <TextBlock Name="Current" Foreground="White" TextAlignment="Center" FontSize="50" FontFamily="Arial Black" Grid.Column="1"/>
+                <TextBlock Name="Next" Foreground="#69ffffff" FontSize="50" FontFamily="Arial Black" Grid.Column="2"/>
+            </Grid>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -130,6 +142,7 @@
                 <mycontrols:KeyboardButton Grid.Row="4" Grid.Column="13" x:Name="RightCtrl"/>
                 <!--#endregion-->
             </Grid>
+            <ProgressBar Style="{DynamicResource ProgressBarStyleTemplate}" Grid.Row="1" Height="2" VerticalAlignment="Top" Name="Progress"/>
         </Grid>
         <Rectangle Name="bottomRightSizeGrip" Grid.Row="1"
         Width="16"
@@ -147,5 +160,6 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <mycontrols:WinInfo x:Name="winInfo" Grid.Row="1" Width="300" Height="200" Visibility="Hidden" RestartClick="winInfo_RestartClick" GoToMenuClick="winInfo_GoToMenuClick"/>
     </Grid>
 </Window>

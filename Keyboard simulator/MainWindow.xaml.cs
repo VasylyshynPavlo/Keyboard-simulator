@@ -61,7 +61,16 @@ namespace Keyboard_simulator
 
         private void button_play_Click(object sender, RoutedEventArgs e)
         {
-            control.StartGame();
+            if(combobox_textes.SelectedIndex != -1)
+            {
+                control.StartGame(control.textes[combobox_textes.SelectedIndex]);
+            }
+            
+        }
+
+        private void TextFileOpen_Click(object sender, RoutedEventArgs e)
+        {
+            control.fileSystem.OpenTextFile();
         }
     }
     public class ViewModel

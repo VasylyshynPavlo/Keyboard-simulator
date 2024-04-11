@@ -36,7 +36,7 @@
                     <Button Click="button_update_Click" Name="button_update" HorizontalAlignment="Center" Width="20" Height="20" Grid.Column="2" Style="{StaticResource DefaultButton}">
                         <Image Margin="2" Source="./icons8-refresh.png"></Image>
                     </Button>
-                    <Button HorizontalAlignment="Center" Width="20" Height="20" Grid.Column="3" Style="{StaticResource DefaultButton}">
+                    <Button Click="TextFileOpen_Click" HorizontalAlignment="Center" Width="20" Height="20" Grid.Column="3" Style="{StaticResource DefaultButton}">
                         <Image Source="./icons8-file-folder.png" Margin="2"></Image>
                     </Button>
                 </Grid>
