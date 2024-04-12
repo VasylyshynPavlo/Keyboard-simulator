@@ -1,4 +1,69 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sapien est, faucibus id lacinia sed, condimentum eget libero. Cras quis lacinia urna. Praesent justo est, porta at posuere nec, interdum a augue. Proin ligula dolor, aliquam nec ligula et, lacinia fringilla augue. Duis velit ligula, consectetur vel eros a, blandit hendrerit ante. Maecenas viverra lectus eget odio auctor, eu convallis mi pharetra. Curabitur mauris magna, placerat vel sapien id, dapibus auctor tortor. In malesuada, lorem a dapibus venenatis, arcu neque mollis sapien, nec feugiat justo elit id magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut in lacinia nunc. Vivamus eget sem enim.
-Curabitur fermentum libero vel vehicula dapibus. Aenean pharetra pulvinar sapien at dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ornare diam mi, ultricies ultricies dolor fringilla a. In hac habitasse platea dictumst. Donec consectetur, dolor ac eleifend pharetra, nisl sem ullamcorper enim, at laoreet nulla urna sed nisl. Nulla mollis molestie magna, ullamcorper finibus ipsum laoreet eu. Donec id risus a magna aliquam ultricies. Aenean ultrices, dui quis cursus gravida, tellus augue volutpat ipsum, id gravida nisl tortor ut felis. Nunc vel risus justo. Morbi facilisis eros nec condimentum tincidunt. Praesent faucibus euismod interdum. Phasellus sed urna eu nibh convallis varius. Suspendisse potenti.
-Aliquam elementum felis in suscipit consectetur. Vestibulum consequat dignissim nulla. Aenean gravida tellus at sem feugiat, a faucibus velit vehicula. Sed ex neque, interdum eget ornare eget, tempus ac ligula. Vivamus ultrices leo quis turpis viverra pretium. Etiam sit amet orci eget metus accumsan ornare vehicula quis nisi. Aliquam fringilla pretium molestie. Cras auctor rutrum lorem at tincidunt. Nullam tincidunt, sem non sollicitudin tempus, turpis ligula feugiat justo, quis ultricies enim ex eu augue.
-T
+┌──────────────────────────────────
+│To add new text copy this:
+│
+│Name="your_text_name"
+│{
+│Language="text_language(English or Українська)"
+│Text="text"
+│}
+│
+└──────────────────────────────────
+Name="Природа(Звичайний)"
+{
+Language="Українська"
+Text="Природа, безсумнівно, одна з найпрекрасніших і найстрашніших речей у світі. Незалежно від того, чи ми говоримо про круті гори, піщані пляжі чи просторі ліси, у природі є щось, що говорить з нашими душами. Одним із найбільш що захоплює аспектами природи є ландшафт. Від засніжених вершин до пагорбів і мерехтливих озер - краса природного світу справді неперевершена."
+}
+
+Name="Місто(Легкий)"
+{
+Language="Українська"
+Text="Місто - це не просто місце, де ми живемо або працюємо. Це сукупність історій, культури, архітектури та, звичайно, людей, які заповнюють його життям. Кожне місто унікальне завдяки своїй атмосфері, яка складається зі сплетіння вулиць, площ, парків та будівель. Але справжня душа міста - це його жителі, їхні традиції, історії та мрії."
+}
+
+Name="Місто вранці(Легкий)"
+{
+Language="Українська"
+Text="Місто прокидається, і перші промені сонця лагідно торкаються старовинних дахів. Вулиці наповнюються м’яким світлом, і кожна бруківка здається частиною давньої історії."
+}
+
+Name="Парки та сади(Легкий)"
+{
+Language="Українська"
+Text="Зелені оази серед міської метушні, парки та сади є джерелами спокою. Кожне дерево, кожна квітка додає місту життя і красу, нагадуючи про природну гармонію."
+}
+
+Name="Архітектурні шедеври(Легкий)"
+{
+Language="Українська"
+Text="Величні будівлі та пам'ятники, що розповідають історії минулих епох. Фасади, вікна, колони - кожен елемент архітектури є свідченням майстерності та естетичного смаку."
+}
+
+Name="Вечірнє місто(Легкий)"
+{
+Language="Українська"
+Text="Коли сутінки опускаються на місто, вогні вуличних ліхтарів створюють чарівну атмосферу. Вечірнє місто живе своїм життям, повним таємниць та романтики."
+}
+
+Name="The Vibrant Pulse(Easy)"
+{
+Language="English"
+Text="In the heart of the city, the streets pulse with life. Neon signs flicker, casting a kaleidoscope of colors on the faces of passersby. Skyscrapers reach for the heavens, their glass facades reflecting the dreams of a metropolis that never sleeps."
+}
+
+Name="The Serene Escape(Easy)"
+{
+Language="English"
+Text="Amidst the urban sprawl lies a serene park, a verdant oasis where nature and city dwell in harmony. The gentle rustle of leaves whispers secrets of ancient times, while the modern skyline looms, a silent guardian of the peaceful enclave."
+}
+
+Name="The Architectural Melody(Easy)"
+{
+Language="English"
+Text="Each building tells a story, a symphony of architectural marvels from different eras. Gothic cathedrals stand shoulder to shoulder with sleek modernist structures, creating a visual melody that sings of history and progress intertwined."
+}
+
+Name="The Cultural Tapestry(Standart)"
+{
+Language="English"
+Text="The city is a tapestry woven with the threads of diverse cultures. Markets buzz with the exchange of languages and goods, while the aroma of exotic spices fills the air. Art galleries and theaters showcase the city's soul, a blend of tradition and innovation that paints the urban landscape."
+}

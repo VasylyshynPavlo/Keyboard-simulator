@@ -10,18 +10,20 @@ namespace Keyboard_simulator
 {
     public class Game
     {
+        public string name;
         public string text;
         public string next;
         public char current;
         public string history;
         public int miss;
-        public Game(string text)
+        public Game(Text _text)
         {
-            this.text = text;
-            next = text.Substring(1);
-            current = text.First();
+            this.text = _text.text;
+            next = _text.text.Substring(1);
+            current = _text.text.First();
             history = "";
             miss = 0;
+            this.name = _text.Name;
         }
         public void Step(string s)
         {

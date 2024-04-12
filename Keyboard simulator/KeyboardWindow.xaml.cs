@@ -1,5 +1,4 @@
 ﻿using Keyboard_simulator.controls;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Shapes;
@@ -15,6 +14,7 @@ namespace Keyboard_simulator
         private DispatcherTimer timer;
         private TimeSpan time;
         private int Time;
+        private bool end = false;
         public KeyboardWindow()
         {
             InitializeComponent();
@@ -47,8 +47,24 @@ namespace Keyboard_simulator
 
             if (Progress.Value == Progress.Maximum)
             {
-
+                end = true;
+                timer.Stop();
+                if (MainWindow.control.language == Keyboard_simulator.Language.English)
+                {
+                    winInfo.TimeText = "Time:";
+                    winInfo.RestartText = "Restart";
+                    winInfo.GoToMenuText = "Menu";
+                    winInfo.Time = Time.ToString() + " sec";
+                }
+                if (MainWindow.control.language == Keyboard_simulator.Language.Ukrainian)
+                {
+                    winInfo.TimeText = "Час:";
+                    winInfo.RestartText = "Спочатку";
+                    winInfo.GoToMenuText = "Меню";
+                    winInfo.Time = Time.ToString() + " сек";
+                }
                 winInfo.Visibility = Visibility.Visible;
+
             }
         }
 
@@ -91,7 +107,7 @@ namespace Keyboard_simulator
             Return.SecondText = " ";
             Space.TopText = "Space";
             Space.SecondText = " ";
-            if (MainWindow.control.lenguage == Lenguage.English)
+            if (MainWindow.control.language == Keyboard_simulator.Language.English)
             {
                 Oem3.TopText = "`";
                 Oem3.SecondText = "~";
@@ -189,7 +205,7 @@ namespace Keyboard_simulator
                 OemQuestion.SecondText = "?";
 
             }
-            if (MainWindow.control.lenguage == Lenguage.Ukrainian)
+            if (MainWindow.control.language == Keyboard_simulator.Language.Ukrainian)
             {
                 Oem3.TopText = "'";
                 Oem3.SecondText = "₴";
@@ -291,7 +307,7 @@ namespace Keyboard_simulator
         {
             if (value)
             {
-                if (MainWindow.control.lenguage == Lenguage.English)
+                if (MainWindow.control.language == Keyboard_simulator.Language.English)
                 {
                     Oem3.SecondText = "`";
                     Oem3.TopText = "~";
@@ -402,7 +418,7 @@ namespace Keyboard_simulator
                     OemPeriod.TopText = ">";
                     OemQuestion.TopText = "?";
                 }
-                if (MainWindow.control.lenguage == Lenguage.Ukrainian)
+                if (MainWindow.control.language == Keyboard_simulator.Language.Ukrainian)
                 {
                     Oem3.SecondText = "'";
                     Oem3.TopText = "₴";
@@ -521,35 +537,38 @@ namespace Keyboard_simulator
 
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            string buttonName = e.Key.ToString();
-            KeyboardButton myButton = this.FindName(buttonName) as KeyboardButton;
-            if (myButton != null)
+            if (!end)
             {
-                if ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
+                string buttonName = e.Key.ToString();
+                KeyboardButton myButton = this.FindName(buttonName) as KeyboardButton;
+                if (myButton != null)
                 {
-                    Spaces(true);
+                    if ((Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
+                    {
+                        Spaces(true);
+                    }
+                    myButton.Pressed();
+                    MainWindow.control.game.Step(myButton.TopText);
+                    UpdateLine();
                 }
-                myButton.Pressed();
-                MainWindow.control.game.Step(myButton.TopText);
-                UpdateLine();
             }
-
         }
 
         private void Window_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-
-            string buttonName = e.Key.ToString();
-            KeyboardButton myButton = this.FindName(buttonName) as KeyboardButton;
-            if (myButton != null)
+            if (!end)
             {
-                if ((Keyboard.Modifiers & ModifierKeys.Shift) != ModifierKeys.Shift)
+                string buttonName = e.Key.ToString();
+                KeyboardButton myButton = this.FindName(buttonName) as KeyboardButton;
+                if (myButton != null)
                 {
-                    Spaces(false);
+                    if ((Keyboard.Modifiers & ModifierKeys.Shift) != ModifierKeys.Shift)
+                    {
+                        Spaces(false);
+                    }
+                    myButton.UnPressed();
                 }
-                myButton.UnPressed();
             }
-
         }
 
 

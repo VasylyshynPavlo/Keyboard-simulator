@@ -61,13 +61,17 @@
         <Border Background="#d7000000">
             <DockPanel LastChildFill="True" Margin="5">
                 <Grid DockPanel.Dock="Bottom">
-                    <Button Click="OnRestartClick" x:Name="Restart" Style="{StaticResource Button}" HorizontalAlignment="Left" Width="100" Content="Restart"/>
-                    <Button Click="OnGoToMenuClick" x:Name="GoToMenu" Style="{StaticResource Button}" FontFamily="Bahnschrift" HorizontalAlignment="Right" Width="100" Content="Go to menu"/>
+                    <Button Content="{Binding RestartText, ElementName=root}" Click="OnRestartClick" x:Name="Restart" Style="{StaticResource Button}" HorizontalAlignment="Left" Width="100"/>
+                    <Button Content="{Binding GoToMenuText, ElementName=root}" Click="OnGoToMenuClick" x:Name="GoToMenu" Style="{StaticResource Button}" FontFamily="Bahnschrift" HorizontalAlignment="Right" Width="100"/>
                 </Grid>
                 <StackPanel>
                     <UniformGrid Columns="2">
-                        <TextBlock Style="{StaticResource DefaultTextBlock}">Time: </TextBlock>
-                        <TextBlock Style="{StaticResource DefaultTextBlock}" x:Name="TimeBlock" Text="{Binding Time, ElementName=root}"></TextBlock>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" Text="{Binding TimeText, ElementName=root}"></TextBlock>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" x:Name="TextBlock" Text="{Binding Time, ElementName=root}"></TextBlock>
+                    </UniformGrid>
+                    <UniformGrid Columns="2">
+                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" Text="{Binding TimeText, ElementName=root}"></TextBlock>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" x:Name="TimeBlock" Text="{Binding Time, ElementName=root}"></TextBlock>
                     </UniformGrid>
                 </StackPanel>
             </DockPanel>

@@ -12,7 +12,7 @@ namespace Keyboard_simulator
         public OptionWindow()
         {
             InitializeComponent();
-            comboBox_lenguage.SelectedIndex = ((int)MainWindow.control.lenguage);
+            comboBox_lenguage.SelectedIndex = ((int)MainWindow.control.language);
         }
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -31,13 +31,13 @@ namespace Keyboard_simulator
         }
         void LenguageChange()
         {
-            if (MainWindow.control.lenguage == Lenguage.English)
+            if (MainWindow.control.language == Keyboard_simulator.Language.English)
             {
                 textBlock_Lenguage.Text = "Text";
                 button_apply.Content = "Apply";
                 button_close.Content = "Close";
             }
-            if (MainWindow.control.lenguage == Lenguage.Ukrainian)
+            if (MainWindow.control.language == Keyboard_simulator.Language.Ukrainian)
             {
                 textBlock_Lenguage.Text = "Текст";
                 button_apply.Content = "Застосувати";
@@ -52,7 +52,7 @@ namespace Keyboard_simulator
 
         private void button_apply_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.control.lenguage = (Lenguage)comboBox_lenguage.SelectedIndex;
+            MainWindow.control.language = (Language)comboBox_lenguage.SelectedIndex;
             LenguageChange();
             DialogResult = true;
         }

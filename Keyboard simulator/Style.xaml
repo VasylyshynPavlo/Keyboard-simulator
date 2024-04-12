@@ -38,6 +38,7 @@
     <!--#region RadioButton-->
     <FontFamily x:Key="RadioButton_FontFamily">Arial Black</FontFamily>
     <SolidColorBrush x:Key="RadioButton_Foreground" Color="#FFFFFFFF"></SolidColorBrush>
+    
     <SolidColorBrush x:Key="RadioButton_OuterCircle" Color="#FF808080"></SolidColorBrush>
     <SolidColorBrush x:Key="RadioButton_OuterCircle_MouseOver_True" Color="#FFB7B7B7"></SolidColorBrush>
     <SolidColorBrush x:Key="RadioButton_InnerCircle" Color="#FFFFFFFF"></SolidColorBrush>
@@ -480,4 +481,16 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <DataTemplate x:Key="ComboBoxItemTemplateForTextes">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Style="{StaticResource DefaultTextBlock}" Text="{Binding Name}"/>
+            <TextBlock Grid.Column="1" Style="{StaticResource DefaultTextBlock}" Text=" | "/>
+            <TextBlock Grid.Column="2" Style="{StaticResource DefaultTextBlock}" Text="{Binding Lenguage}"/>
+        </Grid>
+    </DataTemplate>
 </ResourceDictionary>

@@ -32,7 +32,7 @@
                         <ColumnDefinition Width="25"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <TextBlock Name="textBlock_text" TextAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Style="{StaticResource DefaultTextBlock}" Text="Text"/>
-                    <ComboBox Grid.Column="1" Name="combobox_textes"></ComboBox>
+                    <ComboBox ItemTemplate="{DynamicResource ComboBoxItemTemplateForTextes}" Grid.Column="1" Name="combobox_textes"></ComboBox>
                     <Button Click="button_update_Click" Name="button_update" HorizontalAlignment="Center" Width="20" Height="20" Grid.Column="2" Style="{StaticResource DefaultButton}">
                         <Image Margin="2" Source="./icons8-refresh.png"></Image>
                     </Button>

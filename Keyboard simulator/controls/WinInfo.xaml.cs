@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Keyboard_simulator.controls
 {
@@ -25,13 +13,13 @@ namespace Keyboard_simulator.controls
             InitializeComponent();
         }
 
-        public static readonly RoutedEvent RestartClickEvent = 
+        public static readonly RoutedEvent RestartClickEvent =
             EventManager.RegisterRoutedEvent(nameof(RestartClick), RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(WinInfo));
-        
+
         public event RoutedEventHandler RestartClick
         {
             add { AddHandler(RestartClickEvent, value); }
-            remove { RemoveHandler(RestartClickEvent, value);}
+            remove { RemoveHandler(RestartClickEvent, value); }
         }
 
         private void OnRestartClick(object sender, RoutedEventArgs e)
@@ -62,6 +50,44 @@ namespace Keyboard_simulator.controls
         }
         public static readonly DependencyProperty TimeProperty =
             DependencyProperty.Register("Time", typeof(string), typeof(WinInfo), new PropertyMetadata(string.Empty));
+
+
+
+
+        public string TimeText
+        {
+            get { return (string)GetValue(TimeTextProperty); }
+            set { SetValue(TimeTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TimeText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TimeTextProperty =
+            DependencyProperty.Register("TimeText", typeof(string), typeof(WinInfo), new PropertyMetadata(string.Empty));
+
+
+
+
+        public string RestartText
+        {
+            get { return (string)GetValue(RestartTextProperty); }
+            set { SetValue(RestartTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RestartText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RestartTextProperty =
+            DependencyProperty.Register("RestartText", typeof(string), typeof(WinInfo), new PropertyMetadata(string.Empty));
+
+
+
+        public string GoToMenuText
+        {
+            get { return (string)GetValue(GoToMenuTextProperty); }
+            set { SetValue(GoToMenuTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for GoToMenuText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty GoToMenuTextProperty =
+            DependencyProperty.Register("GoToMenuText", typeof(string), typeof(WinInfo), new PropertyMetadata(string.Empty));
 
 
     }

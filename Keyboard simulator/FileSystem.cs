@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace Keyboard_simulator
 {
     public class FileSystem
     {
-        string TextesFilePath = Directory.GetCurrentDirectory() + "\\files\\textes.txt";
+        string TextesFilePath = Directory.GetCurrentDirectory() + @"\files\textes.txt";
         public FileSystem()
         {
         }
@@ -21,10 +22,30 @@ namespace Keyboard_simulator
             {
                 if (File.Exists(TextesFilePath))
                 {
-                    List<string> files = new List<string>(File.ReadAllLines(TextesFilePath));
-                    foreach (string line in files)
+                    string content = File.ReadAllText(TextesFilePath);
+                    string[] blocks = content.Split(new string[] { "Name=" }, StringSplitOptions.None);
+
+                    foreach (string block in blocks)
                     {
-                        MainWindow.control.textes.Add(line);
+                        if (string.IsNullOrWhiteSpace(block))
+                            continue;
+
+                        Match match = Regex.Match(block, @"^""([^""]*)""\s*\{\s*Language=""([^""]*)""\s*Text=""([^""]*)""\s*\}");
+                        if (match.Success)
+                        {
+                            if (match.Groups[2].Value.Length > 0 && match.Groups[3].Value.Length > 0)
+                            {
+                                if (match.Groups[1].Value.Length == 0) MainWindow.control.textes.Add(new Text { Name = "Text", Lenguage = match.Groups[2].Value, text = match.Groups[3].Value });
+                                else MainWindow.control.textes.Add(new Text { Name = match.Groups[1].Value, Lenguage = match.Groups[2].Value, text = match.Groups[3].Value });
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    using (StreamWriter sw = new StreamWriter(TextesFilePath))
+                    {
+                        sw.Write(string.Empty);
                     }
                 }
             }

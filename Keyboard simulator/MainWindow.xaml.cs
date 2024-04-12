@@ -22,9 +22,9 @@ namespace Keyboard_simulator
         private void Textes_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
             combobox_textes.Items.Clear();
-            for (int i = 0; i < control.textes.Count; i++)
+            foreach (Text txt in control.textes)
             {
-                combobox_textes.Items.Add("Text: " + i + " | Length: " + control.textes[i].Length);
+                combobox_textes.Items.Add(txt);
             }
         }
 
@@ -38,14 +38,14 @@ namespace Keyboard_simulator
         }
         private void LenguageChange()
         {
-            if (control.lenguage == Lenguage.English)
+            if (control.language == Keyboard_simulator.Language.English)
             {
                 textBlock_text.Text = "Text";
                 button_play.Content = "Play";
                 button_settings.Content = "Setting";
                 button_about.Content = "About";
             }
-            if (control.lenguage == Lenguage.Ukrainian)
+            if (control.language == Keyboard_simulator.Language.Ukrainian)
             {
                 textBlock_text.Text = "Текст";
                 button_play.Content = "Грати";
@@ -61,11 +61,11 @@ namespace Keyboard_simulator
 
         private void button_play_Click(object sender, RoutedEventArgs e)
         {
-            if(combobox_textes.SelectedIndex != -1)
+            if (combobox_textes.SelectedIndex != -1)
             {
                 control.StartGame(control.textes[combobox_textes.SelectedIndex]);
             }
-            
+
         }
 
         private void TextFileOpen_Click(object sender, RoutedEventArgs e)

@@ -2,7 +2,7 @@
 
 namespace Keyboard_simulator
 {
-    public enum Lenguage
+    public enum Language
     {
         English,
         Ukrainian
@@ -11,19 +11,19 @@ namespace Keyboard_simulator
     {
         public delegate void LenguageChangedEventHandler(object sender, EventArgs e);
         public event LenguageChangedEventHandler LenguageChanged;
-        public ObservableCollection<string> textes;
+        public ObservableCollection<Text> textes;
         public FileSystem fileSystem;
         public Game game;
 
-        private Lenguage _lenguage;
-        public Lenguage lenguage
+        private Language _language;
+        public Language language
         {
-            get { return _lenguage; }
+            get { return _language; }
             set
             {
-                if (_lenguage != value)
+                if (_language != value)
                 {
-                    _lenguage = value;
+                    _language = value;
                     OnLenguageChanged(EventArgs.Empty);
                 }
             }
@@ -35,8 +35,8 @@ namespace Keyboard_simulator
         }
         public Control()
         {
-            lenguage = Lenguage.English;
-            textes = new ObservableCollection<string>();
+            language = Language.English;
+            textes = new ObservableCollection<Text>();
             fileSystem = new FileSystem();
             //fileSystem.Init();
         }
@@ -49,12 +49,13 @@ namespace Keyboard_simulator
 
             }
         }
-        public void StartGame(string text)
+        public void StartGame(Text text)
         {
+
             game = new Game(text);
             KeyboardWindow keyboardWindow = new KeyboardWindow();
             keyboardWindow.ShowDialog();
-            if( keyboardWindow.DialogResult == true )
+            if (keyboardWindow.DialogResult == true)
             {
                 StartGame(text);
             }

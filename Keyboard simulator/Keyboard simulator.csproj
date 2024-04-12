@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="files\Textes.txt" />
+    <None Remove="files\textes.txt" />
     <None Remove="icons8-file-folder.png" />
     <None Remove="icons8-refresh.png" />
     <None Remove="Mystic_Elegance.png" />
