@@ -90,5 +90,51 @@ namespace Keyboard_simulator.controls
             DependencyProperty.Register("GoToMenuText", typeof(string), typeof(WinInfo), new PropertyMetadata(string.Empty));
 
 
+
+        public string TextNameText
+        {
+            get { return (string)GetValue(TextNameTextProperty); }
+            set { SetValue(TextNameTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextNameText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextNameTextProperty =
+            DependencyProperty.Register("TextNameText", typeof(string), typeof(WinInfo), new PropertyMetadata(String.Empty));
+
+
+
+        public string TextNameValue
+        {
+            get { return (string)GetValue(TextNameValueProperty); }
+            set { SetValue(TextNameValueProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for TextNameValue.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextNameValueProperty =
+            DependencyProperty.Register("TextNameValue", typeof(string), typeof(WinInfo), new PropertyMetadata(String.Empty));
+
+
+
+        public string ScoreText
+        {
+            get { return (string)GetValue(ScoreTextProperty); }
+            set { SetValue(ScoreTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ScoreText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ScoreTextProperty =
+            DependencyProperty.Register("ScoreText", typeof(string), typeof(WinInfo), new PropertyMetadata(String.Empty));
+
+
+
+        public string ScoreValue
+        {
+            get { return (string)GetValue(ScoreValueProperty); }
+            set { SetValue(ScoreValueProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ScoreValue.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ScoreValueProperty =
+            DependencyProperty.Register("ScoreValue", typeof(string), typeof(WinInfo), new PropertyMetadata(String.Empty));
     }
 }

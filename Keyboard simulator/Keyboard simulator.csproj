@@ -13,7 +13,6 @@
     <None Remove="files\textes.txt" />
     <None Remove="icons8-file-folder.png" />
     <None Remove="icons8-refresh.png" />
-    <None Remove="Mystic_Elegance.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +36,10 @@
   <ItemGroup>
     <Folder Include="files\sounds\" />
     <Folder Include="files\themes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

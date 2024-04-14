@@ -66,12 +66,16 @@
                 </Grid>
                 <StackPanel>
                     <UniformGrid Columns="2">
-                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" Text="{Binding TimeText, ElementName=root}"></TextBlock>
-                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" x:Name="TextBlock" Text="{Binding Time, ElementName=root}"></TextBlock>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" Text="{Binding TextNameText, ElementName=root}"></TextBlock>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" x:Name="TextBlock" Text="{Binding TextNameValue, ElementName=root}"></TextBlock>
                     </UniformGrid>
                     <UniformGrid Columns="2">
                         <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" Text="{Binding TimeText, ElementName=root}"></TextBlock>
                         <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" x:Name="TimeBlock" Text="{Binding Time, ElementName=root}"></TextBlock>
+                    </UniformGrid>
+                    <UniformGrid Columns="2">
+                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" Text="{Binding ScoreText, ElementName=root}"></TextBlock>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" x:Name="ScoreBlock" Text="{Binding ScoreValue, ElementName=root}"></TextBlock>
                     </UniformGrid>
                 </StackPanel>
             </DockPanel>

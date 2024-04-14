@@ -60,7 +60,7 @@
 
     <!--#region WindowBackgroundTheme-->
     <SolidColorBrush x:Key="WindowBackgroundTheme_Border" Color="#FF000000"></SolidColorBrush>
-    <ImageBrush x:Key="WindowBackgroundTheme_ImageBrush" Stretch="UniformToFill" ImageSource="./Mystic_Elegance.png"/>
+    <ImageBrush x:Key="WindowBackgroundTheme_ImageBrush" Stretch="UniformToFill" ImageSource="Mystic_Elegance.png"/>
     <!--#endregion-->
 
     <!--#region DefaultTextBlock-->

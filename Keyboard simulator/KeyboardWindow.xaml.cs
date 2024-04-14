@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Keyboard_simulator
 {
@@ -54,17 +55,72 @@ namespace Keyboard_simulator
                     winInfo.TimeText = "Time:";
                     winInfo.RestartText = "Restart";
                     winInfo.GoToMenuText = "Menu";
+                    winInfo.TextNameText = "Text: ";
+                    winInfo.TextNameValue = MainWindow.control.game.name;
                     winInfo.Time = Time.ToString() + " sec";
+                    winInfo.ScoreText = "Result: ";
+                    double score = (100.0 / (double)MainWindow.control.game.text.Length) * (double)MainWindow.control.game.miss;
+                    if (score ==  0)
+                    {
+                        winInfo.ScoreValue = "Perfect";
+                    }
+                    else if (score > 0 && score <= 10) 
+                    {
+                        winInfo.ScoreValue = "Excellent";
+                    }
+                    else if (score > 10 && score <= 40)
+                    {
+                        winInfo.ScoreValue = "Good";
+                    }
+                    else if (score > 40 && score <= 70)
+                    {
+                        winInfo.ScoreValue = "Bad";
+                    }
+                    else if (score > 70 && score <= 100)
+                    {
+                        winInfo.ScoreValue = "Very bad";
+                    }
+                    else if (score > 100)
+                    {
+                        winInfo.ScoreValue = "Horrible";
+                    }
                 }
                 if (MainWindow.control.language == Keyboard_simulator.Language.Ukrainian)
                 {
                     winInfo.TimeText = "Час:";
                     winInfo.RestartText = "Спочатку";
                     winInfo.GoToMenuText = "Меню";
+                    winInfo.TextNameText = "Текст: ";
+                    winInfo.TextNameValue = MainWindow.control.game.name;
                     winInfo.Time = Time.ToString() + " сек";
+                    winInfo.ScoreText = "Результат: ";
+                    double score = (100.0 / (double)MainWindow.control.game.text.Length) * (double)MainWindow.control.game.miss;
+                    if (score == 0)
+                    {
+                        winInfo.ScoreValue = "Бездоганно";
+                    }
+                    else if (score > 0 && score <= 10)
+                    {
+                        winInfo.ScoreValue = "Відмінно";
+                    }
+                    else if (score > 10 && score <= 40)
+                    {
+                        winInfo.ScoreValue = "Добре";
+                    }
+                    else if (score > 40 && score <= 70)
+                    {
+                        winInfo.ScoreValue = "Погано";
+                    }
+                    else if (score > 70 && score <= 100)
+                    {
+                        winInfo.ScoreValue = "Дуже погано";
+                    }
+                    else if (score > 100)
+                    {
+                        winInfo.ScoreValue = "Жахливо";
+                    }
                 }
                 winInfo.Visibility = Visibility.Visible;
-
             }
         }
 
@@ -204,6 +260,9 @@ namespace Keyboard_simulator
                 OemPeriod.SecondText = ">";
                 OemQuestion.SecondText = "?";
 
+                MissText.Text = "Miss: ";
+                TimerText.Text = "Time: ";
+                Cancel.Content = "Cancel";
             }
             if (MainWindow.control.language == Keyboard_simulator.Language.Ukrainian)
             {
@@ -300,6 +359,10 @@ namespace Keyboard_simulator
                 OemComma.SecondText = "Б";
                 OemPeriod.SecondText = "Ю";
                 OemQuestion.SecondText = ",";
+
+                MissText.Text = "Промахи: ";
+                TimerText.Text = "Час: ";
+                Cancel.Content = "Скасувати";
             }
 
         }
@@ -648,6 +711,11 @@ namespace Keyboard_simulator
         }
 
         private void winInfo_GoToMenuClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }

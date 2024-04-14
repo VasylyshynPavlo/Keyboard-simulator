@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Keyboard_simulator
 {
@@ -7,11 +8,12 @@ namespace Keyboard_simulator
         English,
         Ukrainian
     }
-    public class Control
+    public class ControlClasss
     {
         public delegate void LenguageChangedEventHandler(object sender, EventArgs e);
         public event LenguageChangedEventHandler LenguageChanged;
         public ObservableCollection<Text> textes;
+        public ObservableCollection<Theme> themes;
         public FileSystem fileSystem;
         public Game game;
 
@@ -33,12 +35,14 @@ namespace Keyboard_simulator
         {
             LenguageChanged?.Invoke(this, e);
         }
-        public Control()
+        public ControlClasss()
         {
             language = Language.English;
             textes = new ObservableCollection<Text>();
+            themes = new ObservableCollection<Theme>();
             fileSystem = new FileSystem();
             //fileSystem.Init();
+            themes.Add(new());
         }
         public void OpenOptions()
         {
@@ -51,7 +55,8 @@ namespace Keyboard_simulator
         }
         public void StartGame(Text text)
         {
-
+            if (text.Lenguage == "English") language = Language.English;
+            if (text.Lenguage == "Українська") language = Language.Ukrainian;
             game = new Game(text);
             KeyboardWindow keyboardWindow = new KeyboardWindow();
             keyboardWindow.ShowDialog();

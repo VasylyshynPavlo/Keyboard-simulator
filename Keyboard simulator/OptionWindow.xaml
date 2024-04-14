@@ -39,6 +39,23 @@
                         <ComboBoxItem>Українська</ComboBoxItem>
                     </ComboBox>
                 </Grid>
+                <Grid Height="70">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="textBlock_theme" VerticalAlignment="Center" TextAlignment="Center" Style="{StaticResource DefaultTextBlock}" Text="Theme"/>
+                    <ComboBox Grid.Column="1" Name="comboBox_theme" SelectionChanged="comboBox_theme_SelectionChanged"  ItemsSource="{Binding themeItems}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <Border Width="100" Height="50" Background="{Binding WindowBackgroundTheme_ImageBrush}"></Border>
+                                    <TextBlock>Theme</TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
             </StackPanel>
         </DockPanel>
     </Grid>

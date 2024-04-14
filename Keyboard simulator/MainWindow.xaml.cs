@@ -8,7 +8,7 @@ namespace Keyboard_simulator
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static Control control = new();
+        public static ControlClasss control = new();
         public MainWindow()
         {
             InitializeComponent();
@@ -16,7 +16,7 @@ namespace Keyboard_simulator
             this.DataContext = viewModel;
             control.LenguageChanged += MyClass_LenguageChanged;
             control.textes.CollectionChanged += Textes_CollectionChanged;
-            control.fileSystem.UpdateTextes();
+            control.fileSystem.Update();
         }
 
         private void Textes_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -56,7 +56,7 @@ namespace Keyboard_simulator
 
         private void button_update_Click(object sender, RoutedEventArgs e)
         {
-            control.fileSystem.UpdateTextes();
+            control.fileSystem.Update();
         }
 
         private void button_play_Click(object sender, RoutedEventArgs e)
